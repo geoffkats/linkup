@@ -73,8 +73,16 @@ To connect your free Supabase project, run the app with:
 
 ```bash
 flutter run \
-  --dart-define=SUPABASE_URL=your-supabase-project-url \
-  --dart-define=SUPABASE_ANON_KEY=your-supabase-anon-key
+  --dart-define=SUPABASE_URL=https://waewrivhfwxqemdjmlpz.supabase.co \
+  --dart-define=SUPABASE_ANON_KEY=your-supabase-publishable-or-anon-key
 ```
 
 Use the Supabase free tier for this graduation project. It gives you Postgres, auth, storage, and realtime without paying for hosting.
+
+The repo now includes a backend schema migration at [supabase/migrations/20260523120000_linkup_backend.sql](supabase/migrations/20260523120000_linkup_backend.sql) with tables, row-level security, grants, and an `avatars` storage bucket policy.
+
+Apply that migration in your Supabase project to create the backend tables for profiles, jobs, saved jobs, applications, conversations, messages, and notices.
+
+When Supabase is configured, the app creates an anonymous session automatically so the demo can read and write backend data without a full sign-in screen yet.
+
+If your Supabase project uses the newer manual Data API exposure settings, make sure these tables are exposed in the Supabase dashboard after running the migration.
